@@ -2,6 +2,15 @@ document.getElementById("inputButton").addEventListener('click',createPlan)
 
 document.getElementById("verify").addEventListener('click', verifyEmail)
 
+document.getElementById("clearButton").addEventListener('click', clearForm)
+
+function clearForm(){
+    document.getElementById("myForm").reset();
+    $("#clearButton").hide();
+    $("#inputButton").hide();
+    $("#verify").show();
+}
+
 function verifyEmail(e){
     e.preventDefault();
     let inputValue = document.getElementById('email').value;
@@ -12,6 +21,7 @@ function verifyEmail(e){
     } else {
         alert("Email validated");
         $("#inputButton").show();
+        $("#clearButton").show();
         $("#verify").hide();
         return true;
     }
